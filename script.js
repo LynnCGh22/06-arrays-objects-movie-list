@@ -1,8 +1,32 @@
-// Arrays holding movie titles for each genre
-const comedyMovies = ["Deadpool", "Step Brothers", "Anchorman", "The Hangover"];
-const actionMovies = ["Mad Max: Fury Road", "John Wick", "Die Hard", "The Dark Knight"];
-const dramaMovies = ["The Shawshank Redemption", "Forrest Gump", "Fight Club", "The Godfather"];
-const sciFiMovies = ["Inception", "The Matrix", "Interstellar", "Blade Runner 2049"];
+// Arrays of movie objects for each genre
+const comedyMovies = [
+  { title: "Deadpool", year: 2016, description: "A sarcastic anti-hero breaks the fourth wall while seeking revenge." },
+  { title: "Step Brothers", year: 2008, description: "Two immature adults are forced to live together as siblings." },
+  { title: "Anchorman", year: 2004, description: "A clueless news anchor dominates 1970s San Diego TV." },
+  { title: "The Hangover", year: 2009, description: "Friends retrace their wild Vegas night to find a missing groom." }
+];
+
+const actionMovies = [
+  { title: "Mad Max: Fury Road", year: 2015, description: "A high-speed chase across a post-apocalyptic desert." },
+  { title: "John Wick", year: 2014, description: "A retired hitman seeks vengeance for a personal loss." },
+  { title: "Die Hard", year: 1988, description: "A cop battles terrorists in a Los Angeles skyscraper." },
+  { title: "The Dark Knight", year: 2008, description: "Batman faces the Joker in a battle for Gotham’s soul." }
+];
+
+const dramaMovies = [
+  { title: "The Shawshank Redemption", year: 1994, description: "A man finds hope and friendship in prison." },
+  { title: "Forrest Gump", year: 1994, description: "A simple man experiences major moments in U.S. history." },
+  { title: "Fight Club", year: 1999, description: "An underground club spirals into chaos and identity crisis." },
+  { title: "The Godfather", year: 1972, description: "The powerful story of a crime family’s legacy." }
+];
+
+const sciFiMovies = [
+  { title: "Inception", year: 2010, description: "A thief enters dreams to steal secrets." },
+  { title: "The Matrix", year: 1999, description: "A hacker discovers reality is a simulation." },
+  { title: "Interstellar", year: 2014, description: "Explorers travel through space to save humanity." },
+  { title: "Blade Runner 2049", year: 2017, description: "A blade runner uncovers a buried secret." }
+];
+
 
 // Get the genre dropdown and movie recommendations elements
 const genreDropdown = document.getElementById("genre");
@@ -27,17 +51,23 @@ genreDropdown.addEventListener("change", function() {
     movieList = sciFiMovies;
   }
 
-  // Create a <ul> element
-  let html = "<ul>";
+  // Clear previous content
+  movieRecommendations.innerHTML = "";
 
-  // Use a for loop to add each movie as a <li>
+  // Create <ul>
+  const ul = document.createElement("ul");
+
+  // Loop through movies
   for (let i = 0; i < movieList.length; i++) {
-    html += `<li>${movieList[i]}</li>`;
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <strong>${movieList[i].title}</strong> (${movieList[i].year})<br>
+      ${movieList[i].description}
+    `;
+
+    ul.appendChild(li);
   }
 
-  html += "</ul>";
-
-
-  // Display the list of movies on the page
-  movieRecommendations.innerText = `Enjoy: ${movieList.join(", ")}!`;
+  movieRecommendations.appendChild(ul);
 });
