@@ -27,6 +27,17 @@ genreDropdown.addEventListener("change", function() {
     movieList = sciFiMovies;
   }
 
+  // Create a <ul> element
+  let html = "<ul>";
+
+  // Use a for loop to add each movie as a <li>
+  for (let i = 0; i < movieList.length; i++) {
+    html += `<li>${movieList[i]}</li>`;
+  }
+
+  html += "</ul>";
+
+
   // Display the list of movies on the page
   movieRecommendations.innerText = `Enjoy: ${movieList.join(", ")}!`;
 });
