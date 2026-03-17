@@ -65,3 +65,47 @@ li {
   font-size: 20px;
   text-align: left;
 }
+
+/* Movie grid layout */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Movie card */
+.movie-card {
+  background: #222831;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect (Netflix-style pop) */
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Title */
+.movie-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #ff6b6b;
+}
+
+/* Year */
+.movie-year {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.movie-desc {
+  font-size: 15px;
+  line-height: 1.4;
+}

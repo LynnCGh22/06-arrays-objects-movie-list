@@ -56,17 +56,22 @@ genreDropdown.addEventListener("change", function() {
 
   // Create <ul>
   const ul = document.createElement("ul");
+  ul.classList.add("movie-grid");
 
   // Loop through movies
   for (let i = 0; i < movieList.length; i++) {
-    const li = document.createElement("li");
 
-    li.innerHTML = `
-      <strong>${movieList[i].title}</strong> (${movieList[i].year})<br>
-      ${movieList[i].description}
+    const movie = movieList[i];
+    const card = document.createElement("div");
+    card.classList.add("movie-card");
+
+    card.innerHTML = `
+      <h3>${movie.title}</h3>
+      <p class="movie-year">(${movie.year})</p>
+      <p class="movie-desc">${movie.description}</p>
     `;
 
-    ul.appendChild(li);
+    ul.appendChild(card);
   }
 
   movieRecommendations.appendChild(ul);
